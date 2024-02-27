@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OrderManagement.Views.Account.Login"
+             Shell.NavBarIsVisible="False"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:viewmodel="clr-namespace:OrderManagement.ViewModels"
+             x:DataType="viewmodel:LoginViewModel"
+             Title="Login">
+    <ContentPage.Behaviors>
+        <toolkit:EventToCommandBehavior EventName="Appearing"
+                                        Command="{Binding LoadPageCommand}" />
+    </ContentPage.Behaviors>
+    <Grid RowDefinitions="auto,auto,*" 
+          Margin="20,50"
+          RowSpacing="20">
+        <Label Text="Signin"
+               FontSize="Large"/>
+        <VerticalStackLayout Grid.Row="1"
+                             VerticalOptions="Center">
+            <Entry Placeholder="Email"
+                   Text="{Binding Email}" />
+            <Entry Placeholder="Password"
+                   IsPassword="True"
+                   Text="{Binding Password}" />
+        </VerticalStackLayout>
+        <VerticalStackLayout Grid.Row="2">
+            <Button Text="Submit"
+                    Command="{Binding SignInCommand}"/>
+        </VerticalStackLayout>
+    </Grid>
+ 
+</ContentPage>
